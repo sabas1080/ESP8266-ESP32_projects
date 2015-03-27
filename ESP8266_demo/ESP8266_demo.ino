@@ -2,7 +2,7 @@
 *Andres Sabas
 *Sketch para comprobar funcionamiento del ESP8266
 *Firmware: 0.9.2
-*Fecha: 27 de Noviembre del 2014
+*Fecha: 14 de Febrero del 2015
 */
 #include <SoftwareSerial.h>
 #define SSID "XXXXXXXXXXX"
@@ -22,11 +22,11 @@
      delay(1000);
      if(Serial.find("OK"))
      {
-       dbgSerial.println("Module is ready");
+       dbgSerial.println("Modulo Funcionando");
      }
      else
      {
-       dbgSerial.println("Module have no response.");
+       dbgSerial.println("Modulo no detectado o no funcionando.");
        while(1);
      }
      delay(1000);
@@ -96,11 +96,11 @@
        delay(5000);
        if(Serial.find("OK"))
        {
-         dbgSerial.println("OK, Connected to WiFi.");
+         dbgSerial.println("OK, Connectado a WiFi.");
          return true;
          }else
          {
-           dbgSerial.println("Can not connect to the WiFi.");
+           dbgSerial.println("No se pudo conectar al WiFi.");
            return false;
          }
        }
