@@ -34,8 +34,8 @@ Distributed as-is; no warranty is given.
 //////////////////////////////
 // Replace these two character strings with the name and
 // password of your WiFi network.
-const char mySSID[] = "0EF623";
-const char myPSK[] = "SABAS1080*_";
+const char mySSID[] = "YourName Wifi";
+const char myPSK[] = "PasswordWiFi";
 
 /////////////////////
 // IFTTT Constants //
@@ -45,7 +45,7 @@ const String IFTTTServer = "maker.ifttt.com";
 // IFTTT Name Event:
 const String MakerIFTTT_Event = "test";
 // IFTTT private key:
-const String MakerIFTTT_Key = "UP7xiOmHKVooapxybZcT7";
+const String MakerIFTTT_Key = "KeyPrivateIFTTT";
 
 String httpHeader = "POST /trigger/"+MakerIFTTT_Event+"/with/key/"+MakerIFTTT_Key +" HTTP/1.1\r\n" +
                     "Host: " + IFTTTServer + "\r\n" + 
