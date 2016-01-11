@@ -1,12 +1,12 @@
 /************************************************************
 NodeMCU_IFTTT_Maker_Data.ino
-SparkFun ESP8266 AT library - IFTTT Channel Maker Posting Example
+ESP8266 WiFI Secure library - IFTTT Channel Maker Posting Example
 Andres Sabas @ The Inventor's House
 Original Creation Date: Jan 10, 2016
 
-This example demonstrates how to use the TCP client 
-functionality of the ESP8266 WiFiSecure library to post 
-data to a IFTTT event on 
+This example demonstrates how to use the TCP client
+functionality of the ESP8266 WiFiSecure library to post
+data to a IFTTT event on
 https://ifttt.com
 
 Development environment specifics:
@@ -15,8 +15,8 @@ Development environment specifics:
   ESP8266 HUZZAH Adafruit
   or NodeMCU: 1.0
 
-This code is beerware; if you see me (or any other The Inventor's House 
-member) at the local, and you've found our code helpful, 
+This code is beerware; if you see me (or any other The Inventor's House
+member) at the local, and you've found our code helpful,
 please buy us a round!
 
 Distributed as-is; no warranty is given.
@@ -46,11 +46,11 @@ const String MakerIFTTT_Event = "test";
 const String MakerIFTTT_Key = "YourKeyIFTTT";
 
 String httpHeader = "POST /trigger/"+MakerIFTTT_Event+"/with/key/"+MakerIFTTT_Key +" HTTP/1.1\r\n" +
-                    "Host: " + IFTTTServer + "\r\n" + 
+                    "Host: " + IFTTTServer + "\r\n" +
                     "Content-Type: application/json\r\n";
 
-                    
-void setup() 
+
+void setup()
 {
   int status;
   Serial.begin(9600);
@@ -66,7 +66,7 @@ void setup()
   Serial.println(F("WiFi connected"));
   Serial.println(F("IP address is: "));
   Serial.println(WiFi.localIP());
-  
+
   Serial.println(F("Press any key to post to IFTTT!"));
 }
 
@@ -88,14 +88,14 @@ void postToIFTTT()
 {
   // Create a client, and initiate a connection
   WiFiClientSecure client;
-  
+
   if (client.connect(IFTTTServer, httpsPort) <= 0)
   {
     Serial.println(F("Failed to connect to server."));
     return;
   }
   Serial.println(F("Connected."));
-  
+
   // Set up our IFTTT post parameters:
   String params1, params2,params3;
   params1 = String(analogRead(A0));
@@ -103,10 +103,10 @@ void postToIFTTT()
   params3 = String(analogRead(A0));
 
   String data="{\"value1\":\""+params1+"\",\"value2\":\""+params1+"\",\"value3\":\""+params1+"\"}";
-  
+
   Serial.println(F("Posting to IFTTT!"));
   //Serial.println(data.length());
-  
+
   client.print(httpHeader);
   client.print("Content-Length: "); client.print(data.length());
   client.print("\r\n\r\n");
@@ -116,8 +116,8 @@ void postToIFTTT()
   // currently in the receive buffer.
   while (client.available())
     Serial.write(client.read()); // read() gets the FIFO char
-  
-  // connected() is a boolean return value - 1 if the 
+
+  // connected() is a boolean return value - 1 if the
   // connection is active, 0 if it's closed.
   if (client.connected())
     client.stop(); // stop() closes a TCP connection.
