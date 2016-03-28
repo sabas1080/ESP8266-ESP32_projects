@@ -12,11 +12,11 @@ functionality of the WiFiEsp ESP8266 WiFi library on YalerWebService on
 //https://yaler.net
 
 Library required:
-WiFiEsp
-//https://github.com/bportaluri/WiFiEsp 
+//WiFiEsp
+https://github.com/bportaluri/WiFiEsp 
 
 YalerEspServer
-//https://github.com/sabas1080/YalerWiFiEspServer 
+https://github.com/sabas1080/YalerWiFiEspServer 
 
 Development environment specifics:
   IDE: Arduino 1.6.5
