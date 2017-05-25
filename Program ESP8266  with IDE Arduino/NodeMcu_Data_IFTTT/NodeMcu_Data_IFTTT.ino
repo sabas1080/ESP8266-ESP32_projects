@@ -102,15 +102,16 @@ void postToIFTTT()
   params2 = String(analogRead(A0));
   params3 = String(analogRead(A0));
 
-  String data="{\"value1\":\""+params1+"\",\"value2\":\""+params1+"\",\"value3\":\""+params1+"\"}";
+  String data="{\"value1\":\""+params1+"\",\"value2\":\""+params2+"\",\"value3\":\""+params3+"\"}";
 
   Serial.println(F("Posting to IFTTT!"));
   //Serial.println(data.length());
 
   client.print(httpHeader);
-  client.print("Content-Length: "); client.print(data.length());
-  client.print("\r\n\r\n");
-  client.print(data);
+  client.print("Content-Length: "); 
+  client.println(data.length());
+  client.println();
+  client.println(data);
 
   // available() will return the number of characters
   // currently in the receive buffer.
