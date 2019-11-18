@@ -1,7 +1,7 @@
 Experiments with ESP8266 and ESP32
 =======
 
-Repo de trabajo y experimentacion con ESP8266 version 01, version 03, NodeMCU v1.0 y HUZZAH de Adafruit
+Repo de trabajo y experimentos con ESP8266 y ESP32
 
 ### Usted podra encontrar codigo en los lenguajes:
 
