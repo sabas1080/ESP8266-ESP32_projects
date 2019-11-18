@@ -1,19 +1,18 @@
 /************************************************************
-NodeMCU_IFTTT_Maker_Data.ino
-ESP8266 WiFI Secure library - IFTTT Channel Maker Posting Example
+ESP_IFTTT_Maker_Data.ino
+ESP WiFI Secure library - IFTTT Channel Maker Posting Example
 Andres Sabas @ The Inventor's House
 Original Creation Date: Jan 10, 2016
 
 This example demonstrates how to use the TCP client
-functionality of the ESP8266 WiFiSecure library to post
+functionality of the ESP WiFiSecure library to post
 data to a IFTTT event on
 https://ifttt.com
 
 Development environment specifics:
-  IDE: Arduino 1.6.5
+  IDE: Arduino 1.8.9
   Hardware Platform:
-  ESP8266 HUZZAH Adafruit
-  or NodeMCU: 1.0
+  ESP8266 and ESP32
 
 This code is beerware; if you see me (or any other The Inventor's House
 member) at the local, and you've found our code helpful,
@@ -21,9 +20,10 @@ please buy us a round!
 
 Distributed as-is; no warranty is given.
 ************************************************************/
-//Include that library first:
+// Include the ESP8266 and ESP32 WiFiSecure library:
+#if defined(ESP8266)
 #include <ESP8266WiFi.h>
-// Include the ESP8266 WiFiSecure library:
+#endif
 #include <WiFiClientSecure.h>
 
 //////////////////////////////
