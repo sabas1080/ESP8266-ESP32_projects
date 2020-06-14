@@ -12,14 +12,14 @@ Repo de trabajo y experimentos con ESP8266 y ESP32
   - FedexTrackingESP8266
   - YalerWebService
 - Core Arduino Arduino ESP8266
-  - ESP8266_SlackBot	update path and name for ESP32	20 hours ago
-  - MQTTSimpleReceive	Add examples MQTT	1 hour ago
-  - MQTTSimpleSender	Add examples MQTT	1 hour ago
-  - esp_data_IFTTT	rename example data	3 hours ago
-  - esp_neopixel	update path and name for ESP32	20 hours ago
-  - esp_post_event_IFTTT	rename example	3 hours ago
+  - ESP8266_SlackBot	update path and name for ESP32
+  - MQTTSimpleReceive	Add examples MQTT	
+  - MQTTSimpleSender	Add examples MQTT
+  - esp_data_IFTTT	rename example data
+  - esp_neopixel	update path and name for ESP32
+  - esp_post_event_IFTTT	rename example
   - nodered_lamp_and_temp
 - Lua
 
 Andrés Sabas 
-Ultima actualización: Nov 2019
+Ultima actualización: Jun 2020
