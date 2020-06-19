@@ -5,13 +5,13 @@
   a topic once a second.
 
   The circuit:
-  - Arduino MKR 1000, MKR 1010 or Uno WiFi Rev.2 board
+  - ESP32, Arduino MKR 1000, MKR 1010 or Uno WiFi Rev.2 board
 
   This example code is in the public domain.
 */
 
 #include <ArduinoMqttClient.h>
-#include <WiFi.h> // for MKR1000 change to: #include <WiFi101.h>
+#include <WiFi.h>
 
 #include "arduino_secrets.h"
 ///////please enter your sensitive data in the Secret tab/arduino_secrets.h

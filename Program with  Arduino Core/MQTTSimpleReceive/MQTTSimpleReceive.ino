@@ -5,7 +5,7 @@
   When a message is received it prints the message to the serial monitor.
 
   The circuit:
-  - Arduino MKR 1000, MKR 1010 or Uno WiFi Rev.2 board
+  - ESP32, Arduino MKR 1000, MKR 1010 or Uno WiFi Rev.2 board
 
   This example code is in the public domain.
 */
