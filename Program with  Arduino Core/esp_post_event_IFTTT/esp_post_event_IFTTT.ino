@@ -49,10 +49,10 @@ const String MakerIFTTT_Key = "YourPrivateKeyIFTTT";
 String httpHeader = "POST /trigger/"+MakerIFTTT_Event+"/with/key/"+MakerIFTTT_Key +" HTTP/1.1\r\n" +
                     "Host: " + IFTTTServer + "\r\n" + 
                     "Content-Type: application/x-www-form-urlencoded\r\n\r\n";
+int status;
 
 void setup() 
 {
-  int status;
   Serial.begin(9600);
   Serial.println();
   Serial.print(F("connecting to "));
