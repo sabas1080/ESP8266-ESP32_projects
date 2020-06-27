@@ -8,7 +8,7 @@
 
 char ssid[] = "Curso";            // your network SSID (name)
 char pass[] = "electronicc4ts";        // your network password
-int status;     // the Wifi radio's status
+int status = WL_IDLE_STATUS;     // the Wifi radio's status
 
 char server[] = "arduino.cc";
 

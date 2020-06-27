@@ -90,13 +90,15 @@ void postToIFTTT()
   WiFiClientSecure client;
   
   if (client.connect(IFTTTServer, httpsPort) <= 0)
+  if (!client.connect(IFTTTServer, httpsPort))
   {
     Serial.println(F("Failed to connect to server."));
     return;
   }
+  else{
   Serial.println(F("Connected."));
 
-  Serial.println(F("Posting to IFTT Event!"));
+  Serial.println(F("Posting to IFTTT Event!"));
   
   client.print(httpHeader);
 
@@ -109,4 +111,5 @@ void postToIFTTT()
   // connection is active, 0 if it's closed.
   if (client.connected())
     client.stop(); // stop() closes a TCP connection.
+  }
 }
