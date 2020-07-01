@@ -11,7 +11,7 @@
 */
 
 #include <ArduinoMqttClient.h>
-#include <WiFi.h>
+#include <WiFiClientSecure.h>
 
 #include "arduino_secrets.h"
 ///////please enter your sensitive data in the Secret tab/arduino_secrets.h
@@ -19,17 +19,17 @@ char ssid[] = SECRET_SSID;        // your network SSID (name)
 char pass[] = SECRET_PASS;    // your network password (use for WPA, or use as key for WEP)
 
 // To connect with SSL/TLS:
-// 1) Change WiFiClient to WiFiSSLClient.
+// 1) Change WiFiClient to WiFiClientSecure.
 // 2) Change port value from 1883 to 8883.
 // 3) Change broker value to a server with a known SSL/TLS root certificate 
 //    flashed in the WiFi module.
 
-WiFiClient wifiClient;
+WiFiClientSecure wifiClient;
 MqttClient mqttClient(wifiClient);
 
 const char broker[] = "test.mosquitto.org";
-int        port     = 1883;
-const char topic[]  = "sensores/hola";
+int        port     = 8883;
+const char topic[]  = "electroniccats/hola";
 
 const long interval = 1000;
 unsigned long previousMillis = 0;
