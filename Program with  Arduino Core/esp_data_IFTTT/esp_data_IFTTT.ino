@@ -25,14 +25,7 @@ Distributed as-is; no warranty is given.
 #include <ESP8266WiFi.h>
 #endif
 #include <WiFiClientSecure.h>
-
-//////////////////////////////
-// WiFi Network Definitions //
-//////////////////////////////
-// Replace these two character strings with the name and
-// password of your WiFi network.
-const char mySSID[] = "YourWiFiName";
-const char myPSK[] = "YourWiFiPassword";
+#include "arduino_secrets.h"
 
 /////////////////////
 // IFTTT Constants //
@@ -57,8 +50,8 @@ void setup()
   Serial.println();
   Serial.print(F("connecting to "));
   Serial.println(mySSID);
-  WiFi.begin(mySSID, myPSK);
   while (WiFi.status() != WL_CONNECTED) {
+    WiFi.begin(mySSID, myPSK);
     delay(500);
     Serial.print(".");
   }
