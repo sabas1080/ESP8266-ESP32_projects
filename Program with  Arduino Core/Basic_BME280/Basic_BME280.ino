@@ -25,11 +25,14 @@ void setup()
 
   Wire.begin();
 
-  mySensor.setI2CAddress(0x77); //The default for the SparkFun Environmental Combo board is 0x77 (jumper open).
+  mySensor.setI2CAddress(0x76); //The default for the SparkFun Environmental Combo board is 0x77 (jumper open).
   //If you close the jumper it is 0x76
   //The I2C address must be set before .begin() otherwise the cal values will fail to load.
 
-  if(mySensor.beginI2C() == false) Serial.println("Sensor connect failed");
+  if(mySensor.beginI2C() == false) {
+  Serial.println("Sensor connect failed");
+  while(1);
+  }
 }
 
 void loop()
