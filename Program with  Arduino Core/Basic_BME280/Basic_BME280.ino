@@ -45,7 +45,7 @@ void loop()
 
   Serial.print(" Temp: ");
   //Serial.print(mySensor.readTempC(), 2);
-  Serial.print(mySensor.readTempF(), 2);
+  Serial.print(mySensor.readTempC(), 2);
 
   Serial.println();
 
