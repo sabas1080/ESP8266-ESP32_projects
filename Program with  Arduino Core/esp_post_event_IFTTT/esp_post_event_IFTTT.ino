@@ -89,7 +89,6 @@ void postToIFTTT()
   // Create a client, and initiate a connection
   WiFiClientSecure client;
   
-  if (client.connect(IFTTTServer, httpsPort) <= 0)
   if (!client.connect(IFTTTServer, httpsPort))
   {
     Serial.println(F("Failed to connect to server."));
