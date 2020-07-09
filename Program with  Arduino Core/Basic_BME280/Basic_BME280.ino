@@ -21,6 +21,9 @@ BME280 mySensor; //Uses default I2C address 0x77 or address 0x76 (jumper closed)
 void setup()
 {
   Serial.begin(9600);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
   Serial.println("Example showing alternate I2C addresses");
 
   Wire.begin();
