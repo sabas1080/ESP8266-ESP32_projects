@@ -1,7 +1,7 @@
 Experiments with ESP8266 and ESP32
 =======
 
-Repo de trabajo y experimentos con ESP8266 y ESP32
+Repo de trabajo y experimentos con ESP8266 y ESP32 para el curso de [Introduccion a Internet de las Cosas](https://electroniccats.com/education/enrol/index.php?id=5)
 
 ### Usted podra encontrar codigo en los lenguajes:
 
@@ -22,4 +22,4 @@ Repo de trabajo y experimentos con ESP8266 y ESP32
 - Lua
 
 Andrés Sabas 
-Ultima actualización: Jun 2020
+Ultima actualización: May 2021
