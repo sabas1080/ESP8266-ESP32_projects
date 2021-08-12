@@ -11,7 +11,7 @@
 */
 
 #include <ArduinoMqttClient.h>
-#include <WiFiClientSecure.h> // for MKR1000 change to: #include <WiFi101.h>
+#include <WiFi.h> // for MKR1000 change to: #include <WiFi101.h>
 
 #include "arduino_secrets.h"
 ///////please enter your sensitive data in the Secret tab/arduino_secrets.h
@@ -24,11 +24,11 @@ char pass[] = SECRET_PASS;    // your network password (use for WPA, or use as k
 // 3) Change broker value to a server with a known SSL/TLS root certificate 
 //    flashed in the WiFi module.
 
-WiFiClientSecure wifiClient;
+WiFiClient wifiClient;
 MqttClient mqttClient(wifiClient);
 
 const char broker[] = "test.mosquitto.org";
-int        port     = 8883;
+int        port     = 1883;
 const char topic[]  = "electroniccats/hola";
 
 void setup() {
