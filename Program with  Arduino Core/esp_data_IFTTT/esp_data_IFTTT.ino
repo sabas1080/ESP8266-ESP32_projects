@@ -24,7 +24,7 @@ Distributed as-is; no warranty is given.
 #if defined(ESP8266)
 #include <ESP8266WiFi.h>
 #endif
-#include <WiFiClientSecure.h>
+#include <WiFiClient.h>
 #include "arduino_secrets.h"
 
 /////////////////////
@@ -32,7 +32,7 @@ Distributed as-is; no warranty is given.
 /////////////////////
 const char* IFTTTServer = "maker.ifttt.com";
 // IFTTT https por:
-const int httpsPort = 443;
+const int httpsPort = 80;
 // IFTTT Name Event:
 const String MakerIFTTT_Event = "test";
 // IFTTT private key:
@@ -80,7 +80,7 @@ void loop()
 void postToIFTTT()
 {
   // Create a client, and initiate a connection
-  WiFiClientSecure client;
+  WiFiClient client;
 
   if (client.connect(IFTTTServer, httpsPort) <= 0)
   {

@@ -24,11 +24,11 @@ char pass[] = SECRET_PASS;    // your network password (use for WPA, or use as k
 // 3) Change broker value to a server with a known SSL/TLS root certificate 
 //    flashed in the WiFi module.
 
-WiFiClientSecure wifiClient;
+WiFiClient wifiClient;
 MqttClient mqttClient(wifiClient);
 
 const char broker[] = "test.mosquitto.org";
-int        port     = 8883;
+int        port     = 1883;
 const char topic[]  = "electroniccats/hola";
 
 const long interval = 1000;
