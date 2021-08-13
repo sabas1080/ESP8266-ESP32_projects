@@ -24,7 +24,7 @@ Distributed as-is; no warranty is given.
 #if defined(ESP8266)
 #include <ESP8266WiFi.h>
 #endif
-#include <WiFiClient.h>
+#include <WiFi.h>
 
 //////////////////////////////
 // WiFi Network Definitions //

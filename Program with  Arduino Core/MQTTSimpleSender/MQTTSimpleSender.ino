@@ -11,7 +11,7 @@
 */
 
 #include <ArduinoMqttClient.h>
-#include <WiFiClientSecure.h>
+#include <WiFi.h>
 
 #include "arduino_secrets.h"
 ///////please enter your sensitive data in the Secret tab/arduino_secrets.h
