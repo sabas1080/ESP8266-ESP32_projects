@@ -16,7 +16,7 @@
 */
 
 #include <ArduinoMqttClient.h>
-#include <WiFiClientSecure.h> // for MKR1000 change to: #include <WiFi101.h>
+#include <WiFi.h> // for MKR1000 change to: #include <WiFi101.h>
 #include <ArduinoJson.h>
 
 #include "arduino_secrets.h"
@@ -33,20 +33,20 @@ String json = "";
 // 3) Change broker value to a server with a known SSL/TLS root certificate 
 //    flashed in the WiFi module.
 
-WiFiClientSecure wifiClient;
+WiFiClient wifiClient;
 MqttClient mqttClient(wifiClient);
 
 const char broker[] = "test.mosquitto.org";
-int        port     = 8883;
+int        port     = 1883;
 const char topic[]  = "electroniccats/hola";
 
 void setup() {
   //Initialize serial and wait for port to open:
   Serial.begin(9600);
-  pinMode(4,OUTPUT);
-  pinMode(2,OUTPUT);
-  digitalWrite(2,LOW);
-  digitalWrite(4,LOW);
+  pinMode(12,OUTPUT);
+  pinMode(14,OUTPUT);
+  digitalWrite(12,HIGH);
+  digitalWrite(14,HIGH);
   
   while (!Serial) {
     ; // wait for serial port to connect. Needed for native USB port only
@@ -55,7 +55,8 @@ void setup() {
   // attempt to connect to Wifi network:
   Serial.print("Attempting to connect to WPA SSID: ");
   Serial.println(ssid);
-  while (WiFi.begin(ssid, pass) != WL_CONNECTED) {
+  WiFi.begin(ssid, pass);
+  while (WiFi.status() != WL_CONNECTED) {
     // failed, retry
     Serial.print(".");
     delay(5000);
@@ -146,19 +147,20 @@ void demoParse() {
   Serial.println(led);
 
   if(led == "ON"){
-    digitalWrite(4,HIGH);
+    digitalWrite(12,HIGH);
     Serial.println("Encendido led1");
   }
   if(led == "OFF"){
-    digitalWrite(4,LOW);
+    digitalWrite(12,LOW);
     Serial.println("Apagado led1");
   }
+  Serial.println(led2);
     if(led2 == "ON"){
-    digitalWrite(2,HIGH);
+    digitalWrite(14,HIGH);
     Serial.println("Encendido led2");
   }
   if(led2 == "OFF"){
-    digitalWrite(2,LOW);
+    digitalWrite(14,LOW);
     Serial.println("Apagado led2");
   }
 }

@@ -50,8 +50,9 @@ void setup()
   Serial.println();
   Serial.print(F("connecting to "));
   Serial.println(mySSID);
+  WiFi.begin(mySSID, myPSK);
   while (WiFi.status() != WL_CONNECTED) {
-    WiFi.begin(mySSID, myPSK);
+    
     delay(500);
     Serial.print(".");
   }
