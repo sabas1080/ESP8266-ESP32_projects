@@ -38,14 +38,13 @@ const String MakerIFTTT_Event = "test";
 // IFTTT private key:
 const String MakerIFTTT_Key = "YourKeyIFTTT";
 
-String httpHeader = "POST /trigger/"+MakerIFTTT_Event+"/with/key/"+MakerIFTTT_Key +" HTTP/1.1\r\n" +
+String httpHeader = "POST /trigger/"+MakerIFTTT_Event+"/json/with/key/"+MakerIFTTT_Key +" HTTP/1.1\r\n" +
                     "Host: " + IFTTTServer + "\r\n" +
-                    "Content-Type: application/json\r\n";
+                    "Content-Type: application/json\r\n\r\n";
 
 
 void setup()
 {
-  int status;
   Serial.begin(9600);
   Serial.println();
   Serial.print(F("connecting to "));
@@ -107,12 +106,27 @@ void postToIFTTT()
   client.println();
   client.println(data);
 
-  // available() will return the number of characters
-  // currently in the receive buffer.
-  while (client.available())
-    Serial.write(client.read()); // read() gets the FIFO char
+  Serial.print("Waiting for response ");
 
-  // connected() is a boolean return value - 1 if the
+    int count = 0;
+    while (!client.available()) {
+      delay(50); //
+      Serial.print(".");
+
+      count++;
+      if (count > 20 * 20) { // about 20s
+        Serial.println("(send) failed!");
+        return;
+      }
+    }
+    // if there are incoming bytes available
+    // from the server, read them and print them:
+    while (client.available()) {
+      char c = client.read();
+      Serial.write(c);
+    }
+  
+  // connected() is a boolean return value - 1 if the 
   // connection is active, 0 if it's closed.
   if (client.connected())
     client.stop(); // stop() closes a TCP connection.
