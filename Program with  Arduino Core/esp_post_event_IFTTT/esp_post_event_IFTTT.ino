@@ -51,6 +51,9 @@ String httpHeader = "POST /trigger/"+MakerIFTTT_Event+"/with/key/"+MakerIFTTT_Ke
                     "Content-Type: application/x-www-form-urlencoded\r\n\r\n";
 int status;
 
+// Create a client, and initiate a connection
+  WiFiClient client;
+
 void setup() 
 {
   Serial.begin(9600);
@@ -86,8 +89,6 @@ void loop()
 
 void postToIFTTT()
 {
-  // Create a client, and initiate a connection
-  WiFiClient client;
   
   if (!client.connect(IFTTTServer, httpsPort))
   {
@@ -101,10 +102,25 @@ void postToIFTTT()
   
   client.print(httpHeader);
 
-  // available() will return the number of characters
-  // currently in the receive buffer.
-  while (client.available())
-    Serial.write(client.read()); // read() gets the FIFO char
+  Serial.print("Waiting for response ");
+
+    int count = 0;
+    while (!client.available()) {
+      delay(50); //
+      Serial.print(".");
+
+      count++;
+      if (count > 20 * 20) { // about 20s
+        Serial.println("(send) failed!");
+        return;
+      }
+    }
+    // if there are incoming bytes available
+    // from the server, read them and print them:
+    while (client.available()) {
+      char c = client.read();
+      Serial.write(c);
+    }
   
   // connected() is a boolean return value - 1 if the 
   // connection is active, 0 if it's closed.
