@@ -38,9 +38,9 @@ const String MakerIFTTT_Event = "test";
 // IFTTT private key:
 const String MakerIFTTT_Key = "YourKeyIFTTT";
 
-String httpHeader = "POST /trigger/"+MakerIFTTT_Event+"/json/with/key/"+MakerIFTTT_Key +" HTTP/1.1\r\n" +
+String httpHeader = "POST /trigger/"+MakerIFTTT_Event+"/with/key/"+MakerIFTTT_Key +" HTTP/1.1\r\n" +
                     "Host: " + IFTTTServer + "\r\n" +
-                    "Content-Type: application/json\r\n\r\n";
+                    "Content-Type: application/json\r\n";
 
 
 void setup()
